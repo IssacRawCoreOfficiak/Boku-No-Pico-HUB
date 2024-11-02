@@ -42,14 +42,23 @@ mainTab:CreateButton("Backdoor", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/iK4oS/backdoor.exe/master/source.lua"))()
 end)
 
-mainTab:CreateButton("Highlight Players", function()
+local highlightEnabled = false
+
+mainTab:CreateToggle("Highlight Players", function(state)
+highlightEnabled = state
 for _, player in pairs(game.Players:GetPlayers()) do
 if player ~= game.Players.LocalPlayer then
+if highlightEnabled then
 local highlight = Instance.new("Highlight")
 highlight.Adornee = player.Character
 highlight.FillColor = Color3.new(1, 0, 0)
 highlight.OutlineColor = Color3.new(1, 0, 0)
 highlight.Parent = player.Character
+else
+if player.Character:FindFirstChildOfClass("Highlight") then
+player.Character:FindFirstChildOfClass("Highlight"):Destroy()
+end
+end
 end
 end
 end)
